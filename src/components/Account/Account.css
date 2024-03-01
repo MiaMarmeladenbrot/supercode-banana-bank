@@ -1,0 +1,50 @@
+.account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--second-color);
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+    padding: 10px;
+
+    width: 80%;
+    margin: 0 auto;
+}
+
+.account h3{
+    margin: 20px;
+    color: var(--dark-color);
+}
+
+.account p{
+    background-color: var(--main-color);
+    padding: 3vw 20vw;
+    border-radius: 10px;
+
+    color: white;
+    font-family: Ruluko;
+    font-size: 50px;
+    /* box-shadow: 0 0 20px var(--dark-color); */
+
+    margin-bottom: 20px;
+
+}
+
+.account input[type="number"]{
+    width: 30vw;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    box-shadow: 0 0 5px var(--dark-color);
+
+    margin-bottom: 20px;
+
+}
+
+.account button{
+    border-radius: 10px;
+    border: none;
+    background-color: var(--main-color);
+    margin: 10px;
+    padding: 5px 10px;
+}
