@@ -7,8 +7,10 @@ import "./Account.css";
 // - Einzahlen-Button = state + input
 // - Auszahlen-Button = state - input
 // - Bedingung: Auszahlen funktioniert nur, wenn input < Kontostand; falls false, dann window.prompt mit Fehlermeldung
+// * Bonus ToDo:
 // - nach Absenden input zurücksetzen
 // - nur positive Zahlen eintippen (min="0" funktioniert nur für Pfeile, nicht für direkte Eingabe) --> Bedingung: value >= 0, sonst Fehlermeldung
+// - Ein- und Auszahlfunktion verstecken, mit Klick öffnen
 
 const Account = () => {
   // * states:
@@ -19,6 +21,9 @@ const Account = () => {
   // - Inputfeld, startet mit leerem String:
   const [money, setMoney] = useState("");
   // console.log(money);
+
+  // - state der Anzeige der Buttons, default hidden:
+  const [buttons, setButtons] = useState(false);
 
   // * Funktion, um state von money entsprechend der Eingabe im Inputfeld zu ändern (mit Bedingung: input >= 0, da keine Minuswerte eingegeben werden sollen):
   const changeMoney = (event) => {
@@ -46,23 +51,39 @@ const Account = () => {
     }
   };
 
+  // * Funktion, um Ein- und Auszahloptionen einzublenden:
+  const showHideButtons = () => {
+    setButtons((buttons) => !buttons);
+    // console.log("func läuft");
+    // console.log(buttons);
+  };
+
   return (
     <section className="account">
-      <h3>Mein Girokonto</h3>
-      <p>{kontostand}</p>
-      <input
-        min="0"
-        type="number"
-        placeholder="Betrag in €"
-        // * Funktionsaufruf beim Ändern des Input-Felds:
-        onChange={changeMoney}
-        value={money}
-      />
-      <div>
-        {/* // * Funktionsaufrufe beim Klick auf die Buttons: */}
-        <button onClick={addMoney}>Einzahlen</button>
-        <button onClick={subMoney}>Auszahlen</button>
+      <div className="kontoanzeige">
+        <p>{kontostand} €</p>
+        <p>aktueller Kontostand</p>
       </div>
+
+      {/* //* Einzahl- und Auszahlfunktion default hidden, erst durch Button werden sie geöffnet: */}
+      <button className="open-button" onClick={showHideButtons}>
+        Geld ein- oder auszahlen ⬇️
+      </button>
+      <article className={buttons ? "show" : ""}>
+        <input
+          min="0"
+          type="number"
+          placeholder="Betrag in €"
+          // * Funktionsaufruf beim Ändern des Input-Felds:
+          onChange={changeMoney}
+          value={money}
+        />{" "}
+        <div>
+          {/* // * Funktionsaufrufe beim Klick auf die Buttons: */}
+          <button onClick={addMoney}>Einzahlen</button>
+          <button onClick={subMoney}>Auszahlen</button>
+        </div>
+      </article>
     </section>
   );
 };

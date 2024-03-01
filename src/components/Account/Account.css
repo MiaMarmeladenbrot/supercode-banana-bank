@@ -1,50 +1,81 @@
-.account{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--second-color);
-    border-radius: 10px;
-    border: 1px solid var(--main-color);
-    padding: 10px;
+.account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: white; */
+  background-color: var(--main-color);
 
-    width: 80%;
-    margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid var(--main-color);
+  padding: 10px;
+
+  /* width: 80%; */
+  margin: 0 auto;
 }
 
-.account h3{
-    margin: 20px;
-    color: var(--dark-color);
+.account h3 {
+  margin: 20px;
+  color: var(--dark-color);
 }
 
-.account p{
-    background-color: var(--main-color);
-    padding: 3vw 20vw;
-    border-radius: 10px;
+.account .kontoanzeige {
+  background-color: white;
+  padding: 3rem 8rem;
+  border-radius: 10px;
 
-    color: white;
-    font-family: Ruluko;
-    font-size: 50px;
-    /* box-shadow: 0 0 20px var(--dark-color); */
+  color: var(--main-color);
+  font-family: Ruluko;
+  font-size: 50px;
 
-    margin-bottom: 20px;
-
+  margin-bottom: 3rem;
 }
 
-.account input[type="number"]{
-    width: 30vw;
-    border-radius: 10px;
-    border: none;
-    padding: 5px 10px;
-    box-shadow: 0 0 5px var(--dark-color);
-
-    margin-bottom: 20px;
-
+.account .kontoanzeige p {
+  color: var(--main-color);
+  font-family: Ruluko;
+  margin-bottom: 0;
 }
 
-.account button{
-    border-radius: 10px;
-    border: none;
-    background-color: var(--main-color);
-    margin: 10px;
-    padding: 5px 10px;
+.account .kontoanzeige p:first-of-type {
+  font-size: 50px;
+}
+
+.account input[type="number"] {
+  width: 15rem;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px var(--dark-color);
+
+  /* margin-bottom: 20px; */
+}
+
+::placeholder {
+  color: var(--main-color);
+  font-family: Ruluko;
+}
+
+.account button {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  color: var(--main-color);
+  margin: 10px;
+  padding: 5px 10px;
+  font-family: Ruluko;
+}
+
+.account .open-button {
+  margin-bottom: 20px;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 20px;
+}
+
+.account article {
+  display: none;
+}
+
+.account article.show {
+  display: block;
 }
